@@ -20,23 +20,23 @@ const listImg = document.querySelectorAll("img");
 let visibleIndex = 0; 
 
 btnTop.addEventListener("click", function(){
+
+    if (visibleIndex > listImg.length - 1) {
+        visibleIndex = 0
+    }
+
     listImg[visibleIndex].classList.remove("visible");
     visibleIndex++;
     listImg[visibleIndex].classList.add("visible");
 
-    btnBottom.classList.remove("hidden")
-    if (visibleIndex === listImg.length - 1) {
-        btnTop.classList.add("hidden")
-    }
 })
 
 btnBottom.addEventListener("click", function(){
+    if (visibleIndex < 0) {
+        visibleIndex = listImg.length - 1
+    }
+
     listImg[visibleIndex].classList.remove("visible");
     visibleIndex--;
     listImg[visibleIndex].classList.add("visible");
-
-    btnTop.classList.remove("hidden")
-    if (visibleIndex === 0) {
-        btnBottom.classList.add("hidden")
-    }
 })
