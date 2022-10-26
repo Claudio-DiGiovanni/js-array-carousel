@@ -17,29 +17,30 @@ for (let i = 0; i < arrImg.length; i++) {
 }
 
 const listImg = document.querySelectorAll(".slider-img");
-
+const listImgThumb = document.querySelectorAll(".image");
 let visibleIndex = 0; 
+
+btnBottom.addEventListener("click", function(){
+    listImg[visibleIndex].classList.remove("visible");
+    listImgThumb[visibleIndex].classList.add("overlay")
+    if (visibleIndex >= listImg.length - 1) {
+        visibleIndex = 0
+    } else {
+        visibleIndex++;
+    }
+    listImg[visibleIndex].classList.add("visible");
+    listImgThumb[visibleIndex].classList.remove("overlay")
+})
 
 btnTop.addEventListener("click", function(){
 
-    if (visibleIndex > listImg.length - 1) {
-        visibleIndex = 0
-    }
-
     listImg[visibleIndex].classList.remove("visible");
-    visibleIndex++;
-    listImg[visibleIndex].classList.add("visible");
-
-})
-
-btnBottom.addEventListener("click", function(){
-    if (visibleIndex < 0) {
+    listImgThumb[visibleIndex].classList.add("overlay")
+    if (visibleIndex <= 0) {
         visibleIndex = listImg.length - 1
+    } else {
+        visibleIndex--;
     }
-
-    document.querySelector(".overlay").classList.remove("overlay")
-
-    listImg[visibleIndex].classList.remove("visible");
-    visibleIndex--;
     listImg[visibleIndex].classList.add("visible");
+    listImgThumb[visibleIndex].classList.remove("overlay")
 })
