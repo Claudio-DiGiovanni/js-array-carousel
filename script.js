@@ -8,6 +8,7 @@ const btnBottom = document.querySelector(".btn-bottom");
 for (let i = 0; i < arrImg.length; i++) {
     const eleImg = document.createElement("img");
     eleImg.src = arrImg[i];
+    eleImg.classList.add("slider-img")
 
     if (i === 0) {
         eleImg.classList.add("visible");
@@ -15,7 +16,7 @@ for (let i = 0; i < arrImg.length; i++) {
     eleSlider.append(eleImg);
 }
 
-const listImg = document.querySelectorAll("img");
+const listImg = document.querySelectorAll(".slider-img");
 
 let visibleIndex = 0; 
 
@@ -35,6 +36,8 @@ btnBottom.addEventListener("click", function(){
     if (visibleIndex < 0) {
         visibleIndex = listImg.length - 1
     }
+
+    document.querySelector(".overlay").classList.remove("overlay")
 
     listImg[visibleIndex].classList.remove("visible");
     visibleIndex--;

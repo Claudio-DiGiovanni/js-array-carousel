@@ -19,24 +19,23 @@ body{
 }
 
 .slider{
-    min-width: fit-content;
-    width: 700px;
-    height: 600px;
+    width: 70%;
+    height: 100%;
     margin: auto;
     background-color: salmon;
     position: relative;
 }
 
 .library{
-    width: 300px;
-    height: 100%;
+    width: 30%;
+    max-height: 100%;
     position: relative;
     background-color: aqua;
 }
 
-img{
+.slider-img{
 	display: none;
-	width: 700px;
+	width: 100%;
 	height: 100%;
     object-fit: cover;
     object-position: center;
@@ -60,6 +59,7 @@ img{
     height: 4rem;
     border-radius: 50%;
     margin: 1rem;
+    z-index: 10;
 }
 
 .btn-top:hover,.btn-bottom:hover{
@@ -72,4 +72,25 @@ img{
 
 .hidden{
     visibility: hidden;
+}
+
+.image{
+    width: 100%;
+    height: 20%;
+    position: relative;
+}
+
+.overlay::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 1;
+}
+
+.library-img{
+    width: 100%;
+    height: 100%;
+    display: block;
 }
